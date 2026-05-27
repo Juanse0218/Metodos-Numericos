@@ -7,427 +7,441 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Metodo SIMPSON ABIERTO</title>
+    <title>Metodo Trapezoidal</title>
 
     <style>
-        body {
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
 
             font-family: Arial;
-            background-color: #d9d9d9;
-            display: flex;
-            justify-content: center;
-            padding-top: 40px;
+            background: linear-gradient(135deg,#1e293b,#0f172a,#2563eb);
+            min-height:100vh;
+            display:flex;
 
         }
 
-        .contenedor {
+        /* SIDEBAR */
 
-            background-color: #2c2c2c;
-            padding: 25px;
-            border-radius: 15px;
-            width: 550px;
-            color: white;
-            box-shadow: 0px 0px 15px black;
+.sidebar{
 
-        }
+    width:260px;
+    background:#111827;
+    padding:30px 20px;
+    min-height:100vh;
+    border-radius:20px;
+    box-shadow:4px 0 10px rgba(0,0,0,0.3);
 
-        h1 {
+}
 
-            text-align: center;
-            margin-bottom: 25px;
+.logo{
 
-        }
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+    text-align:center;
+    margin-bottom:40px;
 
-        input {
+}
 
-            width: 95%;
-            padding: 15px;
-            font-size: 22px;
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 5px;
-            background-color: #e6f5e6;
+.nav-links{
 
-        }
+    list-style:none;
 
-        .grid {
+}
 
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
+.nav-links li{
 
-        }
+    margin-bottom:20px;
 
-        button {
+}
 
-            padding: 15px;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #4a4a4a;
-            color: white;
+.nav-links a{
 
-        }
+    display:block;
+    text-decoration:none;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+    transition:0.3s;
+    font-size:18px;
 
-        button:hover {
+}
 
-            background-color: #666;
+.nav-links a:hover{
 
-        }
+    background:#2563eb;
+    transform:translateX(5px);
 
-        .operador {
+}
 
-            background-color: #ff9500;
+        /* CONTENIDO */
 
-        }
+        .main-content{
 
-        .funcion {
-
-            background-color: #005bbb;
+            margin-left:260px;
+            width:100%;
+            display:flex;
+            justify-content:center;
+            align-items:flex-start;
+            padding:40px;
 
         }
 
-        .control {
+        .contenedor{
 
-            background-color: #c62828;
-
-        }
-
-        .submit {
-
-            width: 100%;
-            margin-top: 20px;
-            background-color: #2e7d32;
-            font-size: 22px;
+            background: rgba(44,44,44,0.95);
+            backdrop-filter: blur(10px);
+            padding:25px;
+            border-radius:15px;
+            width:700px;
+            color:white;
+            box-shadow:0px 0px 15px black;
 
         }
 
-        label {
+        h1{
 
-            font-size: 18px;
-
-        }
-
-        .campo {
-
-            margin-top: 15px;
+            text-align:center;
+            margin-bottom:25px;
 
         }
 
-        .boton {
+        input{
 
-            display: flex;
-
-            justify-content: center;
-
-            margin-top: 30px;
-
-        }
-
-        .boton a {
-
-            text-decoration: none;
-
-            background-color: #1565c0;
-
-            color: white;
-
-            padding: 15px 25px;
-
-            border-radius: 10px;
-
-            font-size: 18px;
-
-            transition: 0.3s;
+            width:95%;
+            padding:15px;
+            font-size:22px;
+            margin-bottom:20px;
+            border:none;
+            border-radius:5px;
+            background-color:#e6f5e6;
 
         }
 
-        .boton a:hover {
+        .grid{
 
-            background-color: #0d47a1;
+            display:grid;
+            grid-template-columns: repeat(5,1fr);
+            gap:10px;
+            margin-bottom:25px;
 
         }
+
+        button{
+
+            padding:15px;
+            font-size:18px;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            background-color:#4a4a4a;
+            color:white;
+            transition:0.3s;
+
+        }
+
+        button:hover{
+
+            background-color:#666;
+            transform:scale(1.05);
+
+        }
+
+        .operador{
+
+            background-color:#ff9500;
+
+        }
+
+        .funcion{
+
+            background-color:#005bbb;
+
+        }
+
+        .control{
+
+            background-color:#c62828;
+
+        }
+
+        .submit{
+
+            width:100%;
+            margin-top:20px;
+            background-color:#2e7d32;
+            font-size:22px;
+
+        }
+
+        .submit:hover{
+
+            background-color:#43a047;
+
+        }
+
+        label{
+
+            font-size:18px;
+
+        }
+
+        .campo{
+
+            margin-top:15px;
+
+        }
+
+        .formula{
+
+            background:#0f172a;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:20px;
+            text-align:center;
+            font-size:20px;
+            color:#93c5fd;
+
+        }
+
+        @media(max-width:900px){
+
+            .sidebar{
+
+                width:100%;
+                height:auto;
+                position:relative;
+
+            }
+
+            .main-content{
+
+                margin-left:0;
+                padding:20px;
+
+            }
+
+            body{
+
+                flex-direction:column;
+
+            }
+
+            .contenedor{
+
+                width:100%;
+
+            }
+
+        }
+
     </style>
 
 </head>
 
 <body>
 
-    <div class="contenedor">
+    <!-- SIDEBAR -->
 
-        <h1>METODO SIMPSON ABIERTO</h1>
+    <div class="sidebar">
 
-        <div th:if="${error}" style="
-        background-color:#c62828;
-        color:white;
-        padding:15px;
-        border-radius:10px;
-        margin-bottom:20px;
-        text-align:center;
-        font-weight:bold;
-    ">
-
-            <span th:text="${error}"></span>
-
+        <div class="logo">
+            CalculoING
         </div>
 
-        <form action="/simpsonAbierto/calcular" method="post">
+        <ul class="nav-links">
 
-            <label>Funcion</label>
+            <li>
+                <a th:href="@{/}">
+                     Inicio
+                </a>
+            </li>
 
-            <input type="text" id="funcion" name="funcion" required>
+            <li>
+                <a th:href="@{/trapezoidal}">
+                     Trapezoidal
+                </a>
+            </li>
 
-            <div class="grid">
+            <li>
+                <a th:href="@{/simpson13}">
+                     Simpson 1/3
+                </a>
+            </li>
 
-                <!-- FILA 1 -->
+            <li>
+                <a th:href="@{/simpson38}">
+                     Simpson 3/8
+                </a>
+            </li>
 
-                <button type="button" class="funcion" onclick="agregar('sin(')">
+            <li>
+                <a th:href="@{/boole}">
+                     Boole
+                </a>
+            </li>
 
-                    sin
+            <li>
+                <a th:href="@{/simpsonAbierto}">
+                     Simpson Abierto
+                </a>
+            </li>
 
-                </button>
+        </ul>
 
-                <button type="button" class="funcion" onclick="agregar('cos(')">
+    </div>
 
-                    cos
+        <!-- CONTENIDO -->
 
-                </button>
+        <div class="main-content">
 
-                <button type="button" class="funcion" onclick="agregar('tan(')">
+            <div class="contenedor">
 
-                    tan
+                <h1>METODO SIMPSON ABIERTO</h1>
 
-                </button>
+                <div class="formula">
 
-                <button type="button" class="funcion" onclick="agregar('log(')">
+                    ∫f(x)dx ≈ (4h/3) [2f(x₁) - f(x₂) + 2f(x₃)]
 
-                    ln
+                </div>
 
-                </button>
+                <div th:if="${error}" style="
+                    background-color:#c62828;
+                    color:white;
+                    padding:15px;
+                    border-radius:10px;
+                    margin-bottom:20px;
+                    text-align:center;
+                    font-weight:bold;
+                ">
 
-                <button type="button" class="funcion" onclick="agregar('sqrt(')">
+                    <span th:text="${error}"></span>
 
-                    √
+                </div>
 
-                </button>
+                <form action="/simpsonAbierto/calcular" method="post">
 
-                <!-- FILA 2 -->
+                    <label>Funcion</label>
 
-                <button type="button" onclick="agregar('7')">
+                    <input type="text" id="funcion" name="funcion" required>
 
-                    7
+                    <div class="grid">
 
-                </button>
+                        <button type="button" class="funcion" onclick="agregar('sin(')">sin</button>
 
-                <button type="button" onclick="agregar('8')">
+                        <button type="button" class="funcion" onclick="agregar('cos(')">cos</button>
 
-                    8
+                        <button type="button" class="funcion" onclick="agregar('tan(')">tan</button>
 
-                </button>
+                        <button type="button" class="funcion" onclick="agregar('log(')">ln</button>
 
-                <button type="button" onclick="agregar('9')">
+                        <button type="button" class="funcion" onclick="agregar('sqrt(')">√</button>
 
-                    9
+                        <button type="button" onclick="agregar('7')">7</button>
 
-                </button>
+                        <button type="button" onclick="agregar('8')">8</button>
 
-                <button type="button" class="operador" onclick="agregar('/')">
+                        <button type="button" onclick="agregar('9')">9</button>
 
-                    ÷
+                        <button type="button" class="operador" onclick="agregar('/')">÷</button>
 
-                </button>
+                        <button type="button" class="operador" onclick="agregar('^')">xʸ</button>
 
-                <button type="button" class="operador" onclick="agregar('^')">
+                        <button type="button" onclick="agregar('4')">4</button>
 
-                    xʸ
+                        <button type="button" onclick="agregar('5')">5</button>
 
-                </button>
+                        <button type="button" onclick="agregar('6')">6</button>
 
-                <!-- FILA 3 -->
+                        <button type="button" class="operador" onclick="agregar('*')">×</button>
 
-                <button type="button" onclick="agregar('4')">
+                        <button type="button" onclick="agregar('x')">x</button>
 
-                    4
+                        <button type="button" onclick="agregar('1')">1</button>
 
-                </button>
+                        <button type="button" onclick="agregar('2')">2</button>
 
-                <button type="button" onclick="agregar('5')">
+                        <button type="button" onclick="agregar('3')">3</button>
 
-                    5
+                        <button type="button" class="operador" onclick="agregar('-')">−</button>
 
-                </button>
+                        <button type="button" onclick="agregar('(')">(</button>
 
-                <button type="button" onclick="agregar('6')">
+                        <button type="button" onclick="agregar('0')">0</button>
 
-                    6
+                        <button type="button" onclick="agregar('.')">.</button>
 
-                </button>
+                        <button type="button" onclick="agregar('exp(')">eˣ</button>
 
-                <button type="button" class="operador" onclick="agregar('*')">
+                        <button type="button" class="operador" onclick="agregar('+')">+</button>
 
-                    ×
+                        <button type="button" onclick="agregar(')')">)</button>
 
-                </button>
+                        <button type="button" onclick="agregar('pi')">π</button>
 
-                <button type="button" onclick="agregar('x')">
+                        <button type="button" onclick="agregar('^2')">x²</button>
 
-                    x
+                        <button type="button" onclick="agregar('^3')">x³</button>
 
-                </button>
+                        <button type="button" onclick="agregar('sqrt(')">ⁿ√x</button>
 
-                <!-- FILA 4 -->
+                        <button type="button" onclick="agregar('abs(')">|x|</button>
 
-                <button type="button" onclick="agregar('1')">
+                        <button type="button" class="control" onclick="borrar()">⌫</button>
 
-                    1
+                        <button type="button" class="control" onclick="limpiar()">AC</button>
 
-                </button>
+                    </div>
 
-                <button type="button" onclick="agregar('2')">
+                    <div class="campo">
 
-                    2
+                        <label>Limite inferior</label>
 
-                </button>
+                        <input type="number" step="any" name="a" required>
 
-                <button type="button" onclick="agregar('3')">
+                    </div>
 
-                    3
+                    <div class="campo">
 
-                </button>
+                        <label>Limite superior</label>
 
-                <button type="button" class="operador" onclick="agregar('-')">
+                        <input type="number" step="any" name="b" required>
 
-                    −
+                    </div>
 
-                </button>
+                    <div class="campo">
 
-                <button type="button" onclick="agregar('(')">
+                        <label>Numero de intervalos</label>
 
-                    (
+                        <input type="number" name="n" min="2" step="2" required>
 
-                </button>
+                    </div>
 
-                <!-- FILA 5 -->
+                    <button type="submit" class="submit">
 
-                <button type="button" onclick="agregar('0')">
+                        CALCULAR
 
-                    0
+                    </button>
 
-                </button>
+                </form>
 
-                <button type="button" onclick="agregar('.')">
+                <div class="boton">
 
-                    .
+                    <a th:href="@{/}">
 
-                </button>
+                        Regresar al Inicio
 
-                <button type="button" onclick="agregar('exp(')">
+                    </a>
 
-                    eˣ
-
-                </button>
-
-                <button type="button" class="operador" onclick="agregar('+')">
-
-                    +
-
-                </button>
-
-                <button type="button" onclick="agregar(')')">
-
-                    )
-
-                </button>
-
-                <!-- FILA 6 -->
-
-                <button type="button" onclick="agregar('pi')">
-
-                    π
-
-                </button>
-
-                <button type="button" onclick="agregar('^2')">
-
-                    x²
-
-                </button>
-
-                <button type="button" onclick="agregar('^3')">
-
-                    x³
-
-                </button>
-
-                <button type="button" onclick="agregar('sqrt(')">
-
-                    ⁿ√x
-
-                </button>
-
-                <button type="button" onclick="agregar('abs(')">
-
-                    |x|
-
-                </button>
-
-                <!-- FILA 7 -->
-
-                <button type="button" class="control" onclick="borrar()">
-
-                    ⌫
-
-                </button>
-
-                <button type="button" class="control" onclick="limpiar()">
-
-                    AC
-
-                </button>
+                </div>
 
             </div>
-
-            <div class="campo">
-
-                <label>Limite inferior</label>
-
-                <input type="number" step="any" name="a" required>
-
-            </div>
-
-            <div class="campo">
-
-                <label>Limite superior</label>
-
-                <input type="number" step="any" name="b" required>
-
-            </div>
-
-            <div class="campo">
-
-                <label>Numero de trapecios</label>
-
-                <input type="number" name="n" min="2" step="2" required>
-
-            </div>
-
-            <button type="submit" class="submit">
-
-                CALCULAR
-
-            </button>
-
-        </form>
-
-        <div class="boton">
-
-            <a th:href="@{/}">
-
-                Regresar al Inicio
-
-            </a>
 
         </div>
 
@@ -443,11 +457,9 @@
 
         function borrar() {
 
-            let input =
-                document.getElementById("funcion");
+            let input = document.getElementById("funcion");
 
-            input.value =
-                input.value.slice(0, -1);
+            input.value = input.value.slice(0, -1);
 
         }
 
@@ -460,21 +472,17 @@
         document.querySelector("form").addEventListener("submit", function (event) {
 
             let n = parseInt(
-
-                document.querySelector(
-                    'input[name="n"]'
-                ).value
+                document.querySelector('input[name="n"]').value
             );
 
             if (n % 2 !== 0) {
 
-                alert(
-                    "El numero de intervalos debe ser par"
-                );
+                alert("El numero de intervalos debe ser par");
 
                 event.preventDefault();
 
             }
+
         });
 
     </script>

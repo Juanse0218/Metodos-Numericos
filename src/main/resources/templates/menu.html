@@ -1,30 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Metodos Numericos</title>
+    <title>CalculoING</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+        }
+
+        .container{
+            width:90%;
+            max-width:700px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius:20px;
+            padding:40px;
+            text-align:center;
+            box-shadow:0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .title{
+            color:white;
+            font-size:3rem;
+            margin-bottom:10px;
+        }
+
+        .subtitle{
+            color:#dbeafe;
+            margin-bottom:35px;
+            font-size:1.2rem;
+        }
+
+        .methods{
+            display:grid;
+            grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+        }
+
+        .method-btn{
+            text-decoration:none;
+            background:white;
+            color:#1e3a8a;
+            padding:18px;
+            border-radius:15px;
+            font-weight:bold;
+            transition:0.3s ease;
+            box-shadow:0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .method-btn:hover{
+            transform:translateY(-5px);
+            background:#2563eb;
+            color:white;
+        }
+
+    </style>
+
 </head>
 <body>
-    <div>
-        <h1>Bienvenido a CalculoING</h1><br>
+
+    <div class="container">
+
+        <h1 class="title">CalculoING</h1>
+
+        <p class="subtitle">
+            Bienvenido a Calculadora de Integrales, tu herramienta definitiva para resolver integrales de manera rapida y precisa. 
+            Nuestra calculadora es la solucion perfecta para ti, con una interfaz intuitiva y facil de usar, 
+            puedes ingresar tus funciones y limites de integracion para obtener resultados instantaneos. Ademas, ofrecemos una variedad de metodos de integracion.
+        </p>
+
+        <h3 class="subtitle">
+            ¿Qué método quieres probar hoy?
+        </h3>
+
+        <div class="methods">
+
+            <a class="method-btn" th:href="@{/trapezoidal}">
+                Método Trapezoidal
+                <p ∫ab​f(x)dx≈2h​[f(x0​)+f(x1​)]></p>
+            </a>
+
+            <a class="method-btn" th:href="@{/boole}">
+                Método Jorge Boole
+                <p ∫ab​f(x)dx≈5h​[7f(x0​)+32f(x1​)+12f(x2​)+32f(x3​)+7f(x4​)]></p>
+            </a>
+
+            <a class="method-btn" th:href="@{/simpson38}">
+                Método Simpson 3/8
+                <p ∫ab​f(x)dx≈3h​[f(x0​)+3f(x1​)+3f(x2​)+f(x3​)]></p>
+            </a>
+
+            <a class="method-btn" th:href="@{/simpson13}">
+                Método Simpson 1/3
+                <p ∫ab​f(x)dx≈3h​[f(x0​)+4f(x1​)+f(x2​)]></p>
+            </a>
+
+            <a class="method-btn" th:href="@{/simpsonAbierto}">
+                Método Simpson Abierto
+                <p ∫ab​f(x)dx≈3h​[f(x0​)+4f(x1​)+f(x2​)]></p>
+            </a>
+
+        </div>
+
     </div>
-    <div>
-        <h3>¿que metodo quieres probar hoy?</h3>
-    </div>
-    <div>
-        <nav>
-            <div><button><a th:href="@{/trapezoidal}">M.T Trapezoidal</a></button></div><br>
 
-            <div><button><a th:href="@{/boole}">M.T Jorge Boole</a></button></div><br>
-
-            <div><button><a th:href="@{/simpson38}">M.T Simpson 3/8</a></button></div><br>
-
-            <div><button><a th:href="@{/simpson13}">M.T Simpson 1/3</a></button></div><br>
-
-            <div><button><a th:href="@{/simpsonAbierto}">M.T Simpson Abierto</a></button></div><br>
-
-        </nav>
-    </div>
 </body>
 </html>
