@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Metodos Numericos</title>
+</head>
+<body>
+    <div>
+        <h1>Bienvenido a CalculoING</h1><br>
+    </div>
+    <div>
+        <h3>¿que metodo quieres probar hoy?</h3>
+    </div>
+    <div>
+        <nav>
+            <div><button><a th:href="@{/trapezoidal}">M.T Trapezoidal</a></button></div><br>
+
+            <div><button><a th:href="@{/boole}">M.T Jorge Boole</a></button></div><br>
+
+            <div><button><a th:href="@{/simpson38}">M.T Simpson 3/8</a></button></div><br>
+
+            <div><button><a th:href="@{/simpson13}">M.T Simpson 1/3</a></button></div><br>
+
+            <div><button><a th:href="@{/simpsonAbierto}">M.T Simpson Abierto</a></button></div><br>
+
+        </nav>
+    </div>
+</body>
+</html>
