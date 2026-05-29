@@ -21,11 +21,36 @@
             box-sizing:border-box;
         }
 
+        :root{
+            --bg-main:#020617;
+            --bg-secondary:#06142e;
+            --bg-card:#10254d;
+
+            --primary:#2f6bff;
+            --primary-hover:#1f56d8;
+
+            --button-dark:#1a2d5a;
+            --button-hover:#28437f;
+
+            --text:#ffffff;
+            --text-soft:#c7d2fe;
+
+            --border:#2f6bff;
+        }
+
         body{
 
-            font-family: Arial;
-            background: linear-gradient(135deg,#1e293b,#0f172a,#2563eb);
+            font-family:Arial, sans-serif;
+
+            background:linear-gradient(
+                135deg,
+                #020617,
+                #06142e,
+                #0b1f45
+            );
+
             min-height:100vh;
+
             color:white;
 
         }
@@ -35,19 +60,27 @@
         .navbar{
 
             width:100%;
-            background:#233764;
+
+            background:#08152f;
+
             padding:20px 40px;
+
             display:flex;
+
             justify-content:space-between;
+
             align-items:center;
-            box-shadow:0 4px 10px rgba(0,0,0,0.3);
+
+            border-bottom:1px solid rgba(255,255,255,0.1);
 
         }
 
         .logo{
 
-            font-size:30px;
+            font-size:32px;
+
             font-weight:bold;
+
             color:white;
 
         }
@@ -55,7 +88,9 @@
         .nav-links{
 
             list-style:none;
+
             display:flex;
+
             gap:20px;
 
         }
@@ -63,16 +98,22 @@
         .nav-links a{
 
             text-decoration:none;
+
             color:white;
-            padding:10px 15px;
-            border-radius:10px;
+
+            padding:12px 18px;
+
+            border-radius:12px;
+
             transition:0.3s;
 
         }
 
         .nav-links a:hover{
 
-            background:#2563eb;
+            background:#284b9b;
+
+            transform:translateY(-2px);
 
         }
 
@@ -81,18 +122,25 @@
         h1{
 
             text-align:center;
-            margin-top:30px;
+
+            margin-top:35px;
+
             margin-bottom:15px;
-            font-size:40px;
+
+            font-size:42px;
 
         }
 
         .resultado{
 
             text-align:center;
-            font-size:28px;
+
+            font-size:30px;
+
             margin-bottom:30px;
-            color:#93c5fd;
+
+            color:#8ec5ff;
+
             font-weight:bold;
 
         }
@@ -102,8 +150,11 @@
         .contenedor-principal{
 
             display:flex;
-            gap:20px;
+
+            gap:25px;
+
             align-items:flex-start;
+
             padding:20px 40px;
 
         }
@@ -113,13 +164,68 @@
         .tabla-container{
 
             width:30%;
-            background: rgba(255,255,255,0.95);
-            color:black;
+
+            background:rgba(16,37,77,0.95);
+
+            border:1px solid rgba(47,107,255,0.3);
+
             padding:20px;
+
             border-radius:20px;
-            box-shadow:0px 0px 15px rgba(0,0,0,0.3);
+
+            backdrop-filter:blur(10px);
+
+            box-shadow:0 0 25px rgba(0,0,0,0.4);
+
             overflow-y:auto;
+
             max-height:650px;
+
+        }
+
+        table{
+
+            width:100%;
+
+            border-collapse:collapse;
+
+            color:white;
+
+        }
+
+        th{
+
+            background:#2563eb;
+
+            color:white;
+
+            padding:14px;
+
+            position:sticky;
+
+            top:0;
+
+        }
+
+        td{
+
+            padding:12px;
+
+            text-align:center;
+
+            border-bottom:1px solid rgba(255,255,255,0.1);
+
+        }
+
+        tr:nth-child(even){
+
+            background:rgba(255,255,255,0.05);
+
+        }
+
+        tr:hover{
+
+            background:rgba(47,107,255,0.2);
 
         }
 
@@ -128,61 +234,37 @@
         .grafica-container{
 
             width:70%;
-            background: rgba(255,255,255,0.95);
+
+            background:rgba(16,37,77,0.95);
+
+            border:1px solid rgba(47,107,255,0.3);
+
             padding:20px;
+
             border-radius:20px;
-            box-shadow:0px 0px 15px rgba(0,0,0,0.3);
 
-        }
+            backdrop-filter:blur(10px);
 
-        table{
-
-            width:100%;
-            border-collapse:collapse;
-
-        }
-
-        th{
-
-            background-color:#1565c0;
-            color:white;
-            padding:12px;
-            position:sticky;
-            top:0;
-
-        }
-
-        td{
-
-            padding:10px;
-            text-align:center;
-            border-bottom:1px solid #ddd;
-
-        }
-
-        tr:nth-child(even){
-
-            background-color:#f5f5f5;
-
-        }
-
-        tr:hover{
-
-            background-color:#dbeafe;
+            box-shadow:0 0 25px rgba(0,0,0,0.4);
 
         }
 
         #grafica{
 
             width:100%;
+
             height:600px;
 
         }
 
+        /* BOTON */
+
         .boton{
 
             display:flex;
+
             justify-content:center;
+
             margin:40px;
 
         }
@@ -190,19 +272,30 @@
         .boton a{
 
             text-decoration:none;
-            background-color:#1565c0;
+
+            background:var(--primary);
+
             color:white;
-            padding:15px 25px;
-            border-radius:10px;
+
+            padding:16px 28px;
+
+            border-radius:12px;
+
             font-size:18px;
+
+            font-weight:bold;
+
             transition:0.3s;
 
         }
 
         .boton a:hover{
 
-            background-color:#0d47a1;
-            transform:scale(1.05);
+            background:var(--primary-hover);
+
+            transform:translateY(-3px) scale(1.05);
+
+            box-shadow:0 0 20px rgba(47,107,255,0.7);
 
         }
 
@@ -226,6 +319,7 @@
             .navbar{
 
                 flex-direction:column;
+
                 gap:20px;
 
             }
@@ -233,7 +327,20 @@
             .nav-links{
 
                 flex-wrap:wrap;
+
                 justify-content:center;
+
+            }
+
+            h1{
+
+                font-size:30px;
+
+            }
+
+            .resultado{
+
+                font-size:24px;
 
             }
 
@@ -250,45 +357,71 @@
 <nav class="navbar">
 
     <div class="logo">
+
         CalculoING
+
     </div>
 
     <ul class="nav-links">
 
         <li>
+
             <a th:href="@{/}">
-                 Inicio
+
+                Inicio
+
             </a>
+
         </li>
 
         <li>
+
             <a th:href="@{/trapezoidal}">
-                 Trapezoidal
+
+                Trapezoidal
+
             </a>
+
         </li>
 
         <li>
+
             <a th:href="@{/simpson13}">
-                 Simpson 1/3
+
+                Simpson 1/3
+
             </a>
+
         </li>
 
         <li>
+
             <a th:href="@{/simpson38}">
-                 Simpson 3/8
+
+                Simpson 3/8
+
             </a>
+
         </li>
 
         <li>
+
             <a th:href="@{/boole}">
-                 Boole
+
+                Boole
+
             </a>
+
         </li>
 
         <li>
+
             <a th:href="@{/simpsonAbierto}">
-                 Simpson Abierto
+
+                Simpson Abierto
+
             </a>
+
         </li>
 
     </ul>
@@ -297,7 +430,11 @@
 
 <!-- TITULO -->
 
-<h1>Metodo Trapezoidal</h1>
+<h1>
+
+    METODO TRAPEZOIDAL
+
+</h1>
 
 <div class="resultado">
 
@@ -365,7 +502,7 @@
 
     let y = /*[[${resultado.y}]]*/ [];
 
-    // CURVA PRINCIPAL
+    /* CURVA PRINCIPAL */
 
     let curva = {
 
@@ -381,7 +518,7 @@
 
         line: {
 
-            color: '#1565c0',
+            color: '#2f6bff',
 
             width: 4,
 
@@ -393,7 +530,7 @@
 
             size: 8,
 
-            color: '#d32f2f'
+            color: '#8ec5ff'
 
         }
 
@@ -409,21 +546,31 @@
 
             font: {
 
-                size: 24
+                size: 24,
+
+                color: '#ffffff'
 
             }
 
         },
 
-        paper_bgcolor: '#ffffff',
+        paper_bgcolor: '#10254d',
 
-        plot_bgcolor: '#fafafa',
+        plot_bgcolor: '#08152f',
+
+        font: {
+
+            color: '#ffffff'
+
+        },
 
         xaxis: {
 
             title: 'X',
 
-            gridcolor: '#d9d9d9'
+            gridcolor: 'rgba(255,255,255,0.1)',
+
+            zerolinecolor: 'rgba(255,255,255,0.2)'
 
         },
 
@@ -431,7 +578,9 @@
 
             title: 'f(x)',
 
-            gridcolor: '#d9d9d9'
+            gridcolor: 'rgba(255,255,255,0.1)',
+
+            zerolinecolor: 'rgba(255,255,255,0.2)'
 
         },
 
@@ -441,7 +590,7 @@
 
     Plotly.newPlot('grafica', data, layout);
 
-    // ANIMACION TRAPECIOS
+    /* ANIMACION TRAPECIOS */
 
     let i = 0;
 
@@ -485,11 +634,11 @@
 
             mode: 'lines',
 
-            fillcolor: 'rgba(21,101,192,0.3)',
+            fillcolor: 'rgba(47,107,255,0.3)',
 
             line: {
 
-                color: 'rgba(21,101,192,0.9)',
+                color: 'rgba(47,107,255,0.9)',
 
                 width: 2
 
