@@ -19,7 +19,7 @@ public class Simpson38Controller {
     @GetMapping("/simpson38")
     public String inicio(){
 
-        return "Simpson38/index";
+        return "Simpson38/Index";
 
     }
 
@@ -58,7 +58,7 @@ public class Simpson38Controller {
                     e.getMessage()
             );
 
-            return "Simpson38/index";
+            return "Simpson38/Index";
 
         }
 
