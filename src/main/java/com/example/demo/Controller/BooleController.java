@@ -39,7 +39,7 @@ public class BooleController {
 
             model.addAttribute("resultado", resultado);
 
-            return "boole/resultado";
+            return "boole/Resultado";
 
         } catch (RuntimeException e) {
 

@@ -44,7 +44,7 @@ public class TrapezoidalController {
                     "resultado",
                     resultado);
 
-            return "Trapezoidal/resultado";
+            return "Trapezoidal/Resultado";
 
         } catch (Exception e) {
 

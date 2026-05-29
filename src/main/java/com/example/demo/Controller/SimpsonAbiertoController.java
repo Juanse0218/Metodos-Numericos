@@ -49,7 +49,7 @@ public class SimpsonAbiertoController {
                     resultado
             );
 
-            return "simpsonAbierto/resultado";
+            return "simpsonAbierto/Resultado";
 
         }catch (Exception e){
 

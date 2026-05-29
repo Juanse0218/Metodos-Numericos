@@ -49,7 +49,7 @@ public class Simpson38Controller {
                     resultado
             );
 
-            return "simpson38/resultado";
+            return "simpson38/Resultado";
 
         }catch (Exception e){
 
