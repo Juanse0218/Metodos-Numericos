@@ -19,7 +19,7 @@ public class SimpsonAbiertoController {
     @GetMapping("/simpsonAbierto")
     public String inicio(){
 
-        return "simpsonAbierto/index";
+        return "SimpsonAbierto/index";
 
     }
 
@@ -49,7 +49,7 @@ public class SimpsonAbiertoController {
                     resultado
             );
 
-            return "simpsonAbierto/Resultado";
+            return "SimpsonAbierto/Resultado";
 
         }catch (Exception e){
 
@@ -58,7 +58,7 @@ public class SimpsonAbiertoController {
                     e.getMessage()
             );
 
-            return "simpsonAbierto/index";
+            return "SimpsonAbierto/index";
 
         }
 

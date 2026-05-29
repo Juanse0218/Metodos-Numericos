@@ -19,7 +19,7 @@ public class Simpson13Controller {
     @GetMapping("/simpson13")
     public String inicio(){
 
-        return "simpson13/index";
+        return "Simpson13/index";
 
     }
 
@@ -49,7 +49,7 @@ public class Simpson13Controller {
                     resultado
             );
 
-            return "simpson13/Resultado";
+            return "Simpson13/Resultado";
 
         }catch (Exception e){
 
@@ -58,7 +58,7 @@ public class Simpson13Controller {
                     e.getMessage()
             );
 
-            return "simpson13/index";
+            return "Simpson13/index";
 
         }
 
